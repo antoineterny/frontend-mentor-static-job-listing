@@ -1,7 +1,7 @@
 import React from "react"
 import "./JobDisplay.scss"
 
-const JobDisplay = ({ job, jobs, setJobs }) => (
+const JobDisplay = ({ job, jobs, setJobs, crit, setCrit }) => (
   <div className="JobDisplay" key={job.id}>
     <img src={job.logo} alt="" />
     <div className="description">
@@ -23,6 +23,7 @@ const JobDisplay = ({ job, jobs, setJobs }) => (
         className="tablet"
         onClick={() => {
           setJobs(jobs.filter(j => j.role.includes(job.role)))
+          setCrit([...crit, job.role])
         }}
       >
         {job.role}
@@ -31,15 +32,18 @@ const JobDisplay = ({ job, jobs, setJobs }) => (
         className="tablet"
         onClick={() => {
           setJobs(jobs.filter(j => j.level.includes(job.level)))
+          setCrit([...crit, job.level])
         }}
       >
         {job.level}
       </div>
       {job.languages.map(lang => (
         <div
+          key={job.id + lang}
           className="filter-tablet"
           onClick={() => {
             setJobs(jobs.filter(j => j.languages.includes(lang)))
+            setCrit([...crit, lang])
           }}
         >
           {lang}
@@ -47,9 +51,11 @@ const JobDisplay = ({ job, jobs, setJobs }) => (
       ))}
       {job.tools.map(tool => (
         <div
+          key={job.id + tool}
           className="filter-tablet"
           onClick={() => {
             setJobs(jobs.filter(j => j.tools.includes(tool)))
+            setCrit([...crit, tool])
           }}
         >
           {tool}
