@@ -20,6 +20,9 @@
 
 body {
   background-color: var(--background-gray);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;;
 }
 
 header {
@@ -28,6 +31,11 @@ header {
   background-color: var(--desaturated-dark-cyan);
   background-image: url("/bg-header-desktop.svg");
   margin-bottom: 75px;
+  flex-grow: 0;
+}
+
+#root {
+  flex-grow: 1;
 }
 
 .App {
@@ -55,14 +63,29 @@ header {
   align-items: center;
   font-weight: bold;
   font-size: 13px;
-  margin-bottom: 19px;
   cursor: pointer;
-  &:not(:first-of-type) {
-    margin-left: 16px;
-  }
+  // &:not(:first-of-type) {
+  //   margin-left: 16px;
+  // }
   &:hover {
     color: white;
     background-color: var(--desaturated-dark-cyan);
   }
 }
 
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 1em;
+  flex-grow: 0;
+  a {
+    font-size: 11px;
+    color: var(--very-dark-grayish-cyan);
+  }
+}
+
+@media (max-width: 850px) {
+  .App {
+    margin: 0 24px;
+  }
+}
