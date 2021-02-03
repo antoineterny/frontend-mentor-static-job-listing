@@ -11,7 +11,6 @@ function App() {
     let updatedCriteria = [...criteria]
     updatedCriteria.forEach(c => {
       if (c[0] === crit[0]) {
-        console.log(c[0], "===", crit[0])
         updatedCriteria.splice(updatedCriteria.indexOf(c), 1)
       }
     })
@@ -35,20 +34,18 @@ function App() {
 
   return (
     <div className="App">
-      <CriteriaBar
-        criteria={criteria}
-        // addCriterion={addCriterion}
-        removeCriterion={removeCriterion}
-        clearCriteria={clearCriteria}
-      />
+      <header>
+        {criteria.length > 0 && (
+          <CriteriaBar
+            criteria={criteria}
+            removeCriterion={removeCriterion}
+            clearCriteria={clearCriteria}
+          />
+        )}
+      </header>
+
       {jobs.map(job => (
-        <JobDisplay
-          job={job}
-          key={job.id}
-          jobs={jobs}
-          setJobs={setJobs}
-          addCriterion={addCriterion}
-        />
+        <JobDisplay job={job} key={job.id} addCriterion={addCriterion} />
       ))}
     </div>
   )

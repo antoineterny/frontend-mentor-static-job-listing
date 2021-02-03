@@ -1,0 +1,21 @@
+.CriteriaBar {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-bottom: 1px;
+  .criteriatabs {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+  }
+  .tablet-remove {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    &::after {
+      content: "";
+      width: 32px;
+      height: 32px;
+      background-color: var(--desaturated-dark-cyan);
+    }
+  }
+}
