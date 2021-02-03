@@ -34,7 +34,6 @@ function App() {
 
   return (
     <div className="App">
-      <header>
         {criteria.length > 0 && (
           <CriteriaBar
             criteria={criteria}
@@ -42,7 +41,6 @@ function App() {
             clearCriteria={clearCriteria}
           />
         )}
-      </header>
 
       {jobs.map(job => (
         <JobDisplay job={job} key={job.id} addCriterion={addCriterion} />

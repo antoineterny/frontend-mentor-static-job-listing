@@ -2,7 +2,7 @@ import React from "react"
 import "./JobDisplay.scss"
 
 const JobDisplay = ({ job, addCriterion }) => (
-  <div className="JobDisplay card" key={job.id}>
+  <div className={job.featured ? "JobDisplay card featured" : "JobDisplay card"} key={job.id}>
     <img src={job.logo} alt="" />
     <div className="description">
       <h5>
@@ -35,11 +35,7 @@ const JobDisplay = ({ job, addCriterion }) => (
         </div>
       ))}
       {job.tools.map(tool => (
-        <div
-          key={job.id + tool}
-          className="tablet"
-          onClick={() => addCriterion(["tools", tool])}
-        >
+        <div key={job.id + tool} className="tablet" onClick={() => addCriterion(["tools", tool])}>
           {tool}
         </div>
       ))}

@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+  &.featured {
+    border-left: 5px solid var(--desaturated-dark-cyan);
+    padding-left: 36px;
+  }
   img {
     width: 88px;
     height: 88px;
@@ -34,7 +38,12 @@
     h4 {
       font-weight: bold;
       font-size: 18px;
+      color: var(--very-dark-grayish-cyan);
       margin-bottom: 12px;
+      &:hover {
+        cursor: pointer;
+        color: var(--desaturated-dark-cyan);
+      }
     }
     p {
       font-weight: 500;

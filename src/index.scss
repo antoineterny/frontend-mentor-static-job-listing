@@ -27,6 +27,11 @@ header {
   height: 157px;
   background-color: var(--desaturated-dark-cyan);
   background-image: url("/bg-header-desktop.svg");
+  margin-bottom: 75px;
+}
+
+.App {
+  margin: 0 40px;
 }
 
 .card {
@@ -43,7 +48,7 @@ header {
   color: var(--desaturated-dark-cyan);
   background-color: var(--tablets-gray);
   height: 32px;
-  padding: 0 8px;
+  padding: 4px 8px 0 8px;
   border-radius: 4px;
   display: flex;
   justify-content: center;
