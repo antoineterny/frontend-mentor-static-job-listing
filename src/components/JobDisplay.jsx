@@ -1,7 +1,7 @@
 import React from "react"
 import "./JobDisplay.scss"
 
-const JobDisplay = ({ job, jobs, setJobs, crit, setCrit }) => (
+const JobDisplay = ({ job, jobs, setJobs, addCriterion }) => (
   <div className="JobDisplay" key={job.id}>
     <img src={job.logo} alt="" />
     <div className="description">
@@ -22,8 +22,8 @@ const JobDisplay = ({ job, jobs, setJobs, crit, setCrit }) => (
       <div
         className="tablet"
         onClick={() => {
-          setJobs(jobs.filter(j => j.role.includes(job.role)))
-          setCrit([...crit, job.role])
+          // setJobs(jobs.filter(j => j.role.includes(job.role)))
+          addCriterion(["role", job.role])
         }}
       >
         {job.role}
@@ -31,8 +31,8 @@ const JobDisplay = ({ job, jobs, setJobs, crit, setCrit }) => (
       <div
         className="tablet"
         onClick={() => {
-          setJobs(jobs.filter(j => j.level.includes(job.level)))
-          setCrit([...crit, job.level])
+          // setJobs(jobs.filter(j => j.level.includes(job.level)))
+          addCriterion(["level", job.level])
         }}
       >
         {job.level}
@@ -42,8 +42,8 @@ const JobDisplay = ({ job, jobs, setJobs, crit, setCrit }) => (
           key={job.id + lang}
           className="filter-tablet"
           onClick={() => {
-            setJobs(jobs.filter(j => j.languages.includes(lang)))
-            setCrit([...crit, lang])
+            // setJobs(jobs.filter(j => j.languages.includes(lang)))
+            addCriterion(["languages", lang])
           }}
         >
           {lang}
@@ -54,8 +54,8 @@ const JobDisplay = ({ job, jobs, setJobs, crit, setCrit }) => (
           key={job.id + tool}
           className="filter-tablet"
           onClick={() => {
-            setJobs(jobs.filter(j => j.tools.includes(tool)))
-            setCrit([...crit, tool])
+            // setJobs(jobs.filter(j => j.tools.includes(tool)))
+            addCriterion(["tools", tool])
           }}
         >
           {tool}
