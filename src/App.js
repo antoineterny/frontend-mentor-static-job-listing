@@ -7,14 +7,14 @@ import JobDisplay from "./components/JobDisplay"
 function App() {
   const [jobs, setJobs] = useState(data)
   const [criteria, setCriteria] = useState([])
-  const addCriterion = crit => {
+  const addCriterion = newCrit => {
     let updatedCriteria = [...criteria]
-    updatedCriteria.forEach(c => {
-      if (c[0] === crit[0]) {
-        updatedCriteria.splice(updatedCriteria.indexOf(c), 1)
+    updatedCriteria.forEach(existingCrit => {
+      if (existingCrit[1] === newCrit[1]) {
+        updatedCriteria.splice(updatedCriteria.indexOf(existingCrit), 1)
       }
     })
-    updatedCriteria.push(crit)
+    updatedCriteria.push(newCrit)
     setCriteria(updatedCriteria)
   }
   const removeCriterion = crit => {
